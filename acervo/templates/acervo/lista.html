@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+  <h1>Acervo</h1>
+  <ul>
+    {% for livro in livros %}
+      <li>
+        {{ livro.titulo }} — {{ livro.autor }}
+        ({{ livro.get_tipo_acervo_display }}, {{ livro.get_categoria_display }})
+      </li>
+    {% empty %}
+      <li>Nenhum livro cadastrado.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
